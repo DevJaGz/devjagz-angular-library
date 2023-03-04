@@ -5,3 +5,53 @@
   margin: 0;
   padding: 0;
 }
+
+ul {
+  list-style-type: none;
+}
+
+.navbar {
+  padding: 2rem;
+  border: 1px solid white;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+
+    &__item {
+      display: grid;
+      place-items: center;
+
+      a {
+        text-decoration: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+      }
+
+      &__icon {
+        display: grid;
+        place-items: center;
+      }
+
+      &__text {
+        text-align: center;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+    }
+
+  }
+}
