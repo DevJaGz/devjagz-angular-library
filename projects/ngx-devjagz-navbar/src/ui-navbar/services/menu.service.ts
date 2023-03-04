@@ -53,21 +53,34 @@ export class MenuService {
    * @param component - Component to be added
    * @param menuItemElement - Element that is rendered for the menu item
    */
-  addMenuItemComponent(menuItem: MenuItem, component: MenuItemComponent): void {
+  addMenuItemComponentAndElement(
+    menuItem: MenuItem,
+    component: MenuItemComponent
+  ): void {
     const id = menuItem.id as string;
     const menuItemFound = this.menuItemsMap.get(id);
     if (menuItemFound) {
-      const { host } = component;
       menuItemFound.component = component;
-      menuItemFound.element = host;
+      this.updateMenuItem(id, menuItemFound);
+      this.setIndicatorWidth(component);
+    }
+  }
+
+  /**
+   * Run a method in the component in order to set the indicator width
+   * @param component - Component from where getting the data
+   */
+  private setIndicatorWidth(component: MenuItemComponent): void {
+    if (component) {
+      const { host } = component;
       const menuItemElement = host.nativeElement as HTMLElement;
       const aTag = menuItemElement.getElementsByTagName('a')[0];
+      // Allow to check if it is active in the next cycle
       setTimeout(() => {
         const isActive = aTag.classList.contains('active');
         if (isActive) {
           const domRect = menuItemElement.getBoundingClientRect();
           component.setIndicatorWidth(domRect);
-          this.updateMenuItem(id, menuItemFound);
         }
       }, 0);
     }
