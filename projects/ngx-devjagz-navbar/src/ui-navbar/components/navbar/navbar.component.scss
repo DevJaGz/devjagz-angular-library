@@ -24,7 +24,7 @@ ul {
   &__menu {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
     position: relative;
 
     &__item {
@@ -43,16 +43,21 @@ ul {
         position: relative;
 
         &.active {
-          .navbar__menu__item__text::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: black;
-            border-radius: 999px;
-            z-index: -1;
+
+          .navbar__menu__item__text {
+            padding: 0.25rem 1rem;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: black;
+              border-radius: 999px;
+              z-index: -1;
+            }
           }
         }
       }
@@ -70,7 +75,7 @@ ul {
         text-align: center;
         font-size: 0.7rem;
         text-transform: uppercase;
-        padding: 0.25rem 1rem;
+        padding: 0;
         z-index: 1;
         letter-spacing: 0.1rem;
         transition: 0.5s;
