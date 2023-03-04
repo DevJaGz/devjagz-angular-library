@@ -10,104 +10,115 @@ ul {
   list-style-type: none;
 }
 
-.navbar {
-  padding: 1.2rem 2rem;
-  border: 1px solid white;
 
-  &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-  }
+:host {
 
-  &__menu {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    position: relative;
+  --indicator-width: 0px;
 
-    &__item {
-      display: grid;
-      align-items: center;
-      justify-items: center;
-      position: relative;
+  ::ng-deep {
+    .navbar {
+      padding: 1.2rem 2rem;
+      border: 1px solid white;
 
-      a {
-        text-decoration: none;
-        cursor: auto;
-        display: grid;
+      &__container {
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        justify-items: center;
-        grid-gap: 0.5rem;
+        gap: 1rem;
+      }
+
+      &__menu {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
         position: relative;
+        outline: 1px solid white;
 
+        &__item {
+          display: grid;
+          align-items: center;
+          justify-items: center;
+          position: relative;
 
-        &.active {
-
-
-          .navbar__menu__item__icon {
-            top: auto;
-            transform: translateY(0);
+          a {
+            text-decoration: none;
             cursor: auto;
-            min-width: auto;
-            min-height: auto;
-          }
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            grid-gap: 0.5rem;
+            position: relative;
+            color: inherit;
 
-          .navbar__menu__item__text {
-            padding: 0.25rem 1rem;
-            opacity: 1;
-            top: auto;
-            transform: translateY(0);
-            width: auto;
-            font-size: 0.7rem;
+            &:focus {
+              color: inherit;
+            }
 
-            &::before {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background-color: black;
-              border-radius: 999px;
-              z-index: -1;
+
+            &.active {
+
+
+              .navbar__menu__item__icon {
+                top: auto;
+                transform: translateY(0);
+                cursor: auto;
+                min-width: auto;
+                min-height: auto;
+              }
+
+              .navbar__menu__item__text {
+                padding: 0.25rem 1rem;
+                opacity: 1;
+                top: auto;
+                transform: translateY(0);
+                width: auto;
+                font-size: 0.7rem;
+
+              }
             }
           }
+
+          &__icon {
+            cursor: pointer;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: 0.5s;
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+          }
+
+          &__text {
+            position: relative;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            font-size: 0;
+            text-transform: uppercase;
+            padding: 0;
+            opacity: 1;
+            cursor: auto;
+            transform: translateY(-50%);
+            z-index: 1;
+            letter-spacing: 0.1rem;
+            transition: 0.25s;
+          }
+
+        }
+
+        &__indicator {
+          position: absolute;
+          width: var(--indicator-width);
+          height: 20px;
+          background-color: black;
+          bottom: 0;
+          border-radius: 999px;
         }
       }
-
-      &__icon {
-        cursor: pointer;
-        display: grid;
-        align-items: center;
-        justify-items: center;
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-        transition: 0.5s;
-        cursor: pointer;
-        width: 24px;
-        height: 24px;
-      }
-
-      &__text {
-        position: relative;
-        display: grid;
-        place-items: center;
-        text-align: center;
-        font-size: 0;
-        text-transform: uppercase;
-        padding: 0;
-        opacity: 1;
-        cursor: auto;
-        transform: translateY(-50%);
-        z-index: 1;
-        letter-spacing: 0.1rem;
-        transition: 0.25s;
-      }
-
     }
-
   }
 }

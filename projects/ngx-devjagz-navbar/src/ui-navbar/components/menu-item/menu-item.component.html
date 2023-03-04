@@ -1,0 +1,24 @@
+<a
+  *ngIf="menu.routerLink; else noRouterLinkTemplate"
+  routerLinkActive="active"
+  [routerLink]="menu.routerLink"
+  (click)="emitClickedMenuItem(menu)"
+>
+  <ng-container
+    [ngTemplateOutlet]="menuTemplate"
+    [ngTemplateOutletContext]="{ menu: menu }"
+  ></ng-container>
+</a>
+<ng-template #noRouterLinkTemplate>
+  <a (click)="emitClickedMenuItem(menu)">
+    <ng-container
+      [ngTemplateOutlet]="menuTemplate"
+      [ngTemplateOutletContext]="{ menu: menu }"
+    ></ng-container>
+  </a>
+</ng-template>
+
+<ng-template #menuTemplate let-menu="menu">
+  <span class="navbar__menu__item__icon"><i>&#x40;</i></span>
+  <span class="navbar__menu__item__text">{{ menu.label }}</span>
+</ng-template>

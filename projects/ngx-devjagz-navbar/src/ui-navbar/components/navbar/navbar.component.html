@@ -5,36 +5,14 @@
       <ng-content select="left"></ng-content>
     </div>
     <ul class="navbar__menu">
-      <li class="navbar__menu__item">
-        <a class="active">
-          <span class="navbar__menu__item__icon"><i>&#x40;</i></span>
-          <span class="navbar__menu__item__text">Home</span>
-        </a>
+      <li class="navbar__menu__item" *ngFor="let menu of menuService.menuItems">
+        <ngx-devjagz-menu-item
+          [menu]="menu"
+          (menuItemClicked)="emitClickedMenuItem($event)"
+          (onIndicatorWidth)="setIndicatorWidth($event)"
+        ></ngx-devjagz-menu-item>
       </li>
-      <li class="navbar__menu__item">
-        <a>
-          <span class="navbar__menu__item__icon"> <i> &#xa9;</i> </span>
-          <span class="navbar__menu__item__text">Settings</span>
-        </a>
-      </li>
-      <li class="navbar__menu__item">
-        <a>
-          <span class="navbar__menu__item__icon"> &#x2107; </span>
-          <span class="navbar__menu__item__text">Profile</span>
-        </a>
-      </li>
-      <li class="navbar__menu__item">
-        <a>
-          <span class="navbar__menu__item__icon"> &#xa7; </span>
-          <span class="navbar__menu__item__text">Documentation</span>
-        </a>
-      </li>
-      <li class="navbar__menu__item">
-        <a>
-          <span class="navbar__menu__item__icon">&#x212B;</span>
-          <span class="navbar__menu__item__text">About</span>
-        </a>
-      </li>
+      <div class="navbar__menu__indicator"></div>
     </ul>
     <div class="navbar__container__template">
       TR
