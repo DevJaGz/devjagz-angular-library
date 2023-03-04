@@ -53,10 +53,7 @@ export class MenuService {
    * @param component - Component to be added
    * @param menuItemElement - Element that is rendered for the menu item
    */
-  addMenuItemComponentAndElement(
-    menuItem: MenuItem,
-    component: MenuItemComponent
-  ): void {
+  addMenuItemComponent(menuItem: MenuItem, component: MenuItemComponent): void {
     const id = menuItem.id as string;
     const menuItemFound = this.menuItemsMap.get(id);
     if (menuItemFound) {

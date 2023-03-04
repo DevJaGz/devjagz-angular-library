@@ -37,7 +37,7 @@ export class MenuItemComponent implements AfterViewInit {
   constructor(public menuService: MenuService, private _host: ElementRef) {}
 
   ngAfterViewInit(): void {
-    this.menuService.addMenuItemComponentAndElement(this.menu, this);
+    this.menuService.addMenuItemComponent(this.menu, this);
   }
 
   /**
