@@ -24,28 +24,41 @@ ul {
   &__menu {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 4rem;
     position: relative;
 
     &__item {
       display: grid;
-      place-items: center;
+      align-items: center;
+      justify-items: center;
       position: relative;
 
       a {
         text-decoration: none;
-        cursor: pointer;
-        display: flex;
-        flex-direction: column;
+        cursor: auto;
+        display: grid;
+        align-items: center;
         justify-items: center;
-        justify-content: center;
-        gap: 0.5rem;
+        grid-gap: 0.5rem;
         position: relative;
+
 
         &.active {
 
+
+          .navbar__menu__item__icon {
+            transform: translateY(0px);
+            cursor: auto;
+            min-width: auto;
+            min-height: auto;
+          }
+
           .navbar__menu__item__text {
             padding: 0.25rem 1rem;
+            opacity: 1;
+            transform: translateY(0px);
+            width: auto;
+            font-size: 0.7rem;
 
             &::before {
               content: '';
@@ -63,9 +76,16 @@ ul {
       }
 
       &__icon {
+        cursor: pointer;
         display: grid;
-        place-items: center;
+        align-items: center;
+        justify-items: center;
         position: relative;
+        transform: translateY(50%);
+        transition: 0.5s;
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
       }
 
       &__text {
@@ -73,9 +93,12 @@ ul {
         display: grid;
         place-items: center;
         text-align: center;
-        font-size: 0.7rem;
+        font-size: 0;
         text-transform: uppercase;
         padding: 0;
+        opacity: 1;
+        cursor: auto;
+        transform: translateY(-50%);
         z-index: 1;
         letter-spacing: 0.1rem;
         transition: 0.5s;
